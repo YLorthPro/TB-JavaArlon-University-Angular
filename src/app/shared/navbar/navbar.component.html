@@ -1,1 +1,11 @@
-<p>navbar works!</p>
+<div *ngIf="userConnected | async">
+  Bienvenue {{userConnected|async}}!
+  <input type="button" (click)="logout()" value="logout">
+    <tr>
+      <td><a routerLink="/student">Etudiant</a></td>
+      <td><a routerLink="/professor">Professeur</a></td>
+      <td><a routerLink="/course">Cours</a></td>
+      <td><a routerLink="/section">Section</a></td>
+    </tr>
+</div>
+
