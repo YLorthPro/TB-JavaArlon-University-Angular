@@ -1,1 +1,17 @@
-<p>section-all works!</p>
+
+<table>
+  <thead>
+    <td>Code</td>
+    <td>Nom</td>
+    <td colspan="2">Actions</td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let section of sections | async">
+      <td>{{ section.code }}</td>
+      <td>{{ section.nom }}</td>
+      <td><input type="button" (click)="getOne(section.code)" value="Plus d'infos"></td>
+      <td><input type="button" (click)="delete(section.code)" value="Supprimer"></td>
+    </tr>
+  </tbody>
+
+</table>

@@ -6,10 +6,13 @@ import { SectionAllComponent } from './section-all/section-all.component';
 import { SectionOneComponent } from './section-one/section-one.component';
 import { SectionCreateComponent } from './section-create/section-create.component';
 import { SectionUpdateComponent } from './section-update/section-update.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {SectionComponent} from "./section.component";
 
 
 @NgModule({
   declarations: [
+    SectionComponent,
     SectionAllComponent,
     SectionOneComponent,
     SectionCreateComponent,
@@ -17,7 +20,8 @@ import { SectionUpdateComponent } from './section-update/section-update.componen
   ],
   imports: [
     CommonModule,
-    SectionRoutingModule
+    SectionRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class SectionModule { }

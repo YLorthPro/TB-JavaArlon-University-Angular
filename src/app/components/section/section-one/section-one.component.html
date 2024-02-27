@@ -1,1 +1,16 @@
-<p>section-one works!</p>
+<div *ngIf="section | async as s">
+  <h2>Code: {{ s.code }}</h2>
+  <h3>Nom: {{ s.nom }}</h3>
+
+  <h4>Professeur dirigeant :</h4>
+  <p>Nom du professeur : {{ s.professeurDirigeant.nom }}</p>
+
+  <h4>Cours :</h4>
+  <ul>
+    <li *ngFor="let course of s.cours">
+      Nom du cours : {{ course.intitule }}
+    </li>
+  </ul>
+
+  <input (click)="update()" value="Mettre à jour la section">
+</div>

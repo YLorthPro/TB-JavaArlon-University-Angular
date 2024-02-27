@@ -13,27 +13,27 @@ export class CourseService {
               @Inject('urlBackEnd') private readonly _url: string) { }
 
   getAll(){
-    return this._httpClient.get<Course[]>(`${this._url}/all`);
+    return this._httpClient.get<Course[]>(`${this.endpointUrl}/all`);
   }
 
   createCourse(course: Course){
-    return this._httpClient.post(`${this._url}/create`, course);
+    return this._httpClient.post(`${this.endpointUrl}/create`, course);
   }
 
   getCourseByMnemonique(mnemonique: string){
-    return this._httpClient.get<Course>(`${this._url}/${mnemonique}`);
+    return this._httpClient.get<Course>(`${this.endpointUrl}/${mnemonique}`);
   }
 
   updateCourse(mnemonique: string, course: Course){
-    return this._httpClient.put(`${this._url}/${mnemonique}`, course);
+    return this._httpClient.put(`${this.endpointUrl}/${mnemonique}`, course);
   }
 
   deleteCourse(mnemonique: string){
-      return this._httpClient.delete(`${this._url}/${mnemonique}`);
+      return this._httpClient.delete(`${this.endpointUrl}/${mnemonique}`);
   }
 
   getCoursesByStudent(studentId: string){
-    return this._httpClient.get<Course[]>(`${this._url}/student/${studentId}`);
+    return this._httpClient.get<Course[]>(`${this.endpointUrl}/student/${studentId}`);
   }
 
 }

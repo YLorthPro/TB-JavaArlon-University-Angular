@@ -1,6 +1,7 @@
 <nav>
   <tr>
-    <td><a routerLink="/all">Toutes les sections</a></td>
-    <td *ngIf="localStorage.getItem('role')?.includes('ADMIN')"><a routerLink="/professor">Créer une section</a></td>
+    <td><a routerLink="/section/all">Toutes les sections</a></td>
+    <td *ngIf="isAdmin()"><a routerLink="/section/create">Créer une section</a></td>
   </tr>
 </nav>
+<router-outlet></router-outlet>

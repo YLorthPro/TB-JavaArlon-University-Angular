@@ -12,6 +12,6 @@ export interface Section {
 export const SECTION_FORM = {
   code: ['',[Validators.required,Validators.minLength(4)]],
   nom: ['',[Validators.required,Validators.minLength(4)]],
-  professeurDirigeantId: ['',[Validators.required,Validators.minLength(4)]],
+  professeurDirigeantMatricule: ['',[Validators.required,Validators.minLength(4)]],
   coursId: ['',[Validators.required]],
 }

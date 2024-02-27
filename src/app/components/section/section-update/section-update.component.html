@@ -1,1 +1,23 @@
-<p>section-update works!</p>
+<form [formGroup]="sectionForm" (ngSubmit)="onSubmit()">
+  <label for="code">Code</label>
+  <input id="code" type="text" formControlName="code">
+
+  <label for="nom">Nom</label>
+  <input id="nom" type="text" formControlName="nom">
+
+  <label for="professeurDirigeant">Professeur dirigeant</label>
+  <select id="professeurDirigeant" formControlName="professeurDirigeantMatricule">
+    <option *ngFor="let professor of professors | async" [value]="professor.numeroMatricule">{{ professor.nom }}</option>
+  </select>
+
+  <label for="courses">Cours</label>
+  <select id="courses" formControlName="coursId" multiple>
+    <option *ngFor="let course of courses | async" [value]="course.mnemonique" [selected]="sectionForm.controls['coursId'].value.includes(course.mnemonique)">
+      {{ course.intitule }}
+    </option>
+  </select>
+
+  {{coursId}}
+
+  <button type="submit">Mettre à jour</button>
+</form>

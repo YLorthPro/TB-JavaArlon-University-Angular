@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
 })
 export class SectionComponent {
 
-    protected readonly localStorage = localStorage;
+    isAdmin():boolean{
+      return !!localStorage.getItem('roles')?.includes('ADMIN');
+    }
 }

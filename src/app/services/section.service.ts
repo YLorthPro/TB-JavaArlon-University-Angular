@@ -15,26 +15,26 @@ export class SectionService {
               @Inject('urlBackEnd') private readonly _url: string) { }
 
   getAllSections() {
-      return this._httpClient.get<Section[]>(`${this._url}/all`);
+      return this._httpClient.get<Section[]>(`${this.endpointUrl}/all`);
   }
 
-  createSection(section: Section) {
-      return this._httpClient.post(`${this._url}/create`, section);
-  }
+  // createSection(section: Section) {
+  //     return this._httpClient.post(`${this.endpointUrl}/create`, section);
+  // }
 
   getSectionById(id: string) {
-      return this._httpClient.get<Section>(`${this._url}/${id}`);
+      return this._httpClient.get<Section>(`${this.endpointUrl}/${id}`);
   }
 
   updateSection(id: string, section: Section) {
-      return this._httpClient.put(`${this._url}/${id}`, section);
+      return this._httpClient.put(`${this.endpointUrl}/${id}`, section);
   }
 
   deleteSection(id: string){
-      return this._httpClient.delete(`${this._url}/${id}`);
+      return this._httpClient.delete(`${this.endpointUrl}/${id}`);
   }
 
   getAllStudentsBySection(sectionId: string){
-    return this._httpClient.get<Student[]>(`${this._url}/${sectionId}/students`);
+    return this._httpClient.get<Student[]>(`${this.endpointUrl}/${sectionId}/students`);
   }
 }

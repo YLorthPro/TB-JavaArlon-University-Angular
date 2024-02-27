@@ -13,7 +13,8 @@ import { LoginComponent } from './components/login/login.component';
 import { StudentComponent } from './components/student/student.component';
 import { SectionComponent } from './components/section/section.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {authInterceptor} from "./interceptor/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -22,11 +23,7 @@ import {HttpClientModule} from "@angular/common/http";
     FooterComponent,
     NavbarComponent,
     NotFoundComponent,
-    CourseComponent,
-    ProfessorComponent,
     LoginComponent,
-    StudentComponent,
-    SectionComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +34,7 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   providers: [
     { provide : "urlBackEnd", useValue : "http://localhost:8080"},
+    { provide: HTTP_INTERCEPTORS, useClass: authInterceptor, multi:true},
   ],
   bootstrap: [AppComponent]
 })

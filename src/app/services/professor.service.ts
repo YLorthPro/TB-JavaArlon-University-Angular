@@ -13,22 +13,22 @@ export class ProfessorService {
               @Inject('urlBackEnd') private readonly _url: string) { }
 
   getAllProfessors() {
-      return this._httpClient.get<Professor[]>(`${this._url}/all`);
+      return this._httpClient.get<Professor[]>(`${this.endpointUrl}/all`);
   }
 
   createProfessor(professor: Professor) {
-      return this._httpClient.post(`${this._url}/create`, professor);
+      return this._httpClient.post(`${this.endpointUrl}/create`, professor);
   }
 
   getProfessorByMatricule(numeroMatricule: string) {
-      return this._httpClient.get<Professor>(`${this._url}/${numeroMatricule}`);
+      return this._httpClient.get<Professor>(`${this.endpointUrl}/${numeroMatricule}`);
   }
 
   updateProfessor(numeroMatricule: string, professor: Professor) {
-    return this._httpClient.put(`${this._url}/${numeroMatricule}`, professor);
+    return this._httpClient.put(`${this.endpointUrl}/${numeroMatricule}`, professor);
   }
 
   deleteProfessor(numeroMatricule: string) {
-      return this._httpClient.delete(`${this._url}/${numeroMatricule}`);
+      return this._httpClient.delete(`${this.endpointUrl}/${numeroMatricule}`);
   }
 }
